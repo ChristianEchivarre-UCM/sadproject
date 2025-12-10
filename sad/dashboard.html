@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UC Equipment Dashboard</title>
+   <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #f5f7fa, #e4ecf7);
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(90deg, #003a8f, #0056c7);
+  padding: 20px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+.logo span {
+  font-size: 16px;
+  margin-left: 10px;
+  color: #ffd700;
+}
+
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #ffd700;
+}
+
+/* ===== MAIN CONTENT ===== */
+.container {
+  padding: 60px;
+}
+
+.welcome {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #003a8f;
+}
+
+#course {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  top: 0;
+  left: 0;
+  background: #003a8f;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card .number {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.icon {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 50px;
+  opacity: 0.15;
+}
+
+/* ===== COLORS ===== */
+.blue { color: #1e88e5; }
+.green { color: #2e7d32; }
+.red { color: #c62828; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+  }
+  .welcome {
+    font-size: 28px;
+  }
+}
+</style>
+
+    <script src="sad/script.js" defer></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            UC <span>University of Cebu</span>
+        </div>
+
+        <div class="nav">
+            <a href="dashboard.html">HOME</a>
+            <a href="setting.html">SETTINGS</a>
+            <a href="borrowed.html">MY BORROWED</a>
+            <a href="#" onclick="logout()">LOGOUT</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome"id="studentName">Welcome,<b>Student Name</b>!</div>
+        <div id="course" style="font-size:18px; color:gray;"></div>
+        <div class="cards">
+
+            <div class="card">
+                <h3>Borrowed Items</h3>
+                <div class="number blue" id="borrowedCount">0</div>
+                <div class="icon">📁</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="available.html">Available Equipment</a></h3>
+                <div class="number green" id="availableCount">0</div>
+                <div class="icon">💻</div>
+            </div>
+
+            <div class="card">
+                <h3>Overdue Reminders</h3>
+                <div class="number red">3</div>
+                <div class="icon">⏰</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
